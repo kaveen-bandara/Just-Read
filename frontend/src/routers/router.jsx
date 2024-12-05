@@ -3,19 +3,19 @@ import App from '../App'
 
 const router = createBrowserRouter([
     {
-      path: "/",
+      path: '/',
       element: <App />,
       children: [
         {
-            path: "/",
+            path: '/',
             element: <h1>Home</h1>,
         },
         {
-            path: "/orders",
+            path: '/orders',
             element: <div>Orders</div>
         },
         {
-            path: "/about",
+            path: '/about',
             element: <div>About</div>
         },
       ]
