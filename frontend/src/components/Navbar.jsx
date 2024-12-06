@@ -6,8 +6,19 @@ import { FaUser } from 'react-icons/fa6'
 import { IoMdHeart } from 'react-icons/io'
 import { FaShoppingCart } from 'react-icons/fa'
 
+import avatarImg from '../assets/avatar.png'
+import { useState } from 'react'
+
+const navigation = [
+    {name: "Dashboard", href:'/dashboard'},
+    {name: "Orders", href:'/orders'}, 
+    {name: "Cart", href:'/cart'}, 
+    {name: "Checkout", href:'/checkout'}, 
+]
 
 const Navbar = () => {
+
+    const [isDropdownOpen, SetIsDropdownOpen] = useState(false);
     const currentUser = true;
     return (
         <header className='max-w-screen-2xl mx-auto px-4 py-6'>
@@ -22,7 +33,35 @@ const Navbar = () => {
                 </div>
 
                 <div className='relative flex items-center md:space-x-3 space-x-2'>
-                    <FaUser className='size-6' />
+                    <div>
+                        {
+                            currentUser ? <>
+                                <button onClick={() => SetIsDropdownOpen(!isDropdownOpen)}>
+                                    <img src={avatarImg} alt="" className={`size-7 rounded-full ${currentUser ? 'ring-2 ring-blue-500' : ''}`} />
+                                </button>
+                                {
+                                    isDropdownOpen && (
+                                        <div className='absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md z-40'>
+                                            <ul className='py-2'>
+                                                {
+                                                    navigation.map((item) => (
+                                                        <li key={item.name} onClick={() => SetIsDropdownOpen(false)}>
+                                                            <Link to={item.href} className='block px-4 py-2 tet-sm hover:bg-gray-100'>
+                                                                {item.name}
+                                                            </Link>
+                                                        </li>
+                                                    ))
+                                                }
+                                            </ul>
+                                        </div>
+                                    )
+                                }
+                            </> : 
+                            <Link to='/login'>
+                                <FaUser className='size-6' />
+                            </Link>
+                        }
+                    </div>
                     <button className='hidden sm:block'><IoMdHeart className='size-6' /></button>
                     <Link to='/cart' className='bg-primary p-1 sm:px-6 px-2 flex items-center rounded-sm'>
                         <FaShoppingCart className='size-6' />
