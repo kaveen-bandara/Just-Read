@@ -1,9 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit'
-import Swal from 'sweetalert2'
+import { createSlice } from '@reduxjs/toolkit';
+import Swal from 'sweetalert2';
 
 const initialState = {
     cartItems: [],
-  }
+  };
 
 const cartSlice = createSlice({
     name: 'cart',
@@ -13,7 +13,7 @@ const cartSlice = createSlice({
             const existingItem = state.cartItems.find(item => item._id === action.payload._id);
 
             if(!existingItem) {
-                state.cartItems.push(action.payload)
+                state.cartItems.push(action.payload);
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -31,7 +31,7 @@ const cartSlice = createSlice({
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#d33",
                     confirmButtonText: "OK!"
-                })
+                });
             }
         },
         removeFromCart: (state, action) => {
@@ -40,8 +40,8 @@ const cartSlice = createSlice({
         clearCart: (state) => {
             state.cartItems = []
         },
-    }
-  })
+    },
+  });
 
-export const {addToCart, removeFromCart, clearCart} = cartSlice.actions
-export default cartSlice.reducer
+export const {addToCart, removeFromCart, clearCart} = cartSlice.actions;
+export default cartSlice.reducer;

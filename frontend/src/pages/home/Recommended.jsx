@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { Pagination, Navigation } from 'swiper/modules'
+import { Pagination, Navigation } from 'swiper/modules';
 
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
-import BookCard from '../books/BookCard'
-//import { useFetchAllBooksQuery } from '../../redux/features/books/booksApi'
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import BookCard from '../books/BookCard';
+//import { useFetchAllBooksQuery } from '../../redux/features/books/booksApi';
 
 
 const Recommened = () => {
@@ -18,8 +18,8 @@ const Recommened = () => {
     const [books, setbooks] = useState([]);
     
     useEffect(() => {
-            fetch("books.json").then(res => res.json()).then((data) => setbooks(data))
-        }, [])
+            fetch("books.json").then(res => res.json()).then((data) => setbooks(data));
+        }, []);
 
   return (
     <div className='py-16'>
@@ -65,6 +65,6 @@ const Recommened = () => {
             </Swiper>
     </div>
   )
-}
+};
 
-export default Recommened
+export default Recommened;

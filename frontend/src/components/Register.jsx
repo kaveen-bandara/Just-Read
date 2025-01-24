@@ -1,43 +1,43 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { FaGoogle } from 'react-icons/fa'
-import { useForm } from 'react-hook-form'
-//import { useAuth } from '../context/AuthContext'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FaGoogle } from 'react-icons/fa';
+import { useForm } from 'react-hook-form';
+//import { useAuth } from '../context/AuthContext';
 
 const Register = () => {
     const [message, setMessage] = useState('');
     //const {registerUser, signInWithGoogle} = useAuth();
-    // console.log(registerUser)
+    // console.log(registerUser);
     const {
         register,
         handleSubmit,
         watch,
         formState: { errors },
-    } = useForm()
+    } = useForm();
 
     //   register user
 
     const onSubmit = async(data) => {
-        // console.log(data)
+        // console.log(data);
         try {
             await registerUser(data.email, data.password);
-            alert("User registered successfully!")
+            alert("User registered successfully!");
         } catch (error) {
-           setMessage("Please provide a valid email and password") 
-           console.error(error)
+           setMessage("Please provide a valid email and password");
+           console.error(error);
         }
-    }
+    };
 
     const handleGoogleSignIn = async() => {
         try {
             await signInWithGoogle();
             alert("Login successful!");
-            navigate("/")
+            navigate("/");
         } catch (error) {
-            alert("Google sign in failed!") 
-            console.error(error)
+            alert("Google sign in failed!");
+            console.error(error);
         }
-    }
+    };
     
     return (
         <div className='h-[calc(100vh-120px)] flex justify-center items-center '>
@@ -94,6 +94,6 @@ const Register = () => {
             </div>
         </div>
     )
-}
+};
 
-export default Register
+export default Register;

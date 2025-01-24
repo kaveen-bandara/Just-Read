@@ -1,21 +1,21 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { HiMiniBars3 } from 'react-icons/hi2'
-import { IoIosSearch } from 'react-icons/io'
-import { FaUser } from 'react-icons/fa6'
-import { IoMdHeart } from 'react-icons/io'
-import { FaShoppingCart } from 'react-icons/fa'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { HiMiniBars3 } from 'react-icons/hi2';
+import { IoIosSearch } from 'react-icons/io';
+import { FaUser } from 'react-icons/fa6';
+import { IoMdHeart } from 'react-icons/io';
+import { FaShoppingCart } from 'react-icons/fa';
 
-import avatarImg from '../assets/avatar.png'
-import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import avatarImg from '../assets/avatar.png';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const navigation = [
     {name: "Dashboard", href:'/dashboard'},
     {name: "Orders", href:'/orders'}, 
     {name: "Cart", href:'/cart'}, 
     {name: "Checkout", href:'/checkout'}, 
-]
+];
 
 const Navbar = () => {
 
@@ -77,6 +77,6 @@ const Navbar = () => {
             </nav>
         </header>
     )
-}
+};
 
-export default Navbar
+export default Navbar;

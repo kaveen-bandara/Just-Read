@@ -1,11 +1,10 @@
-import { createBrowserRouter } from 'react-router-dom'
-import App from '../App'
-import Home from '../pages/home/Home'
-import Login from '../components/Login'
-import Register from '../components/Register'
-import Cart from '../pages/books/CartPage'
-import Checkout from '../pages/books/CheckoutPage'
-
+import { createBrowserRouter } from 'react-router-dom';
+import App from '../App';
+import Home from '../pages/home/Home';
+import Login from '../components/Login';
+import Register from '../components/Register';
+import Cart from '../pages/books/CartPage';
+import CheckoutPage from '../pages/books/CheckoutPage';
 
 const router = createBrowserRouter([
     {
@@ -38,10 +37,10 @@ const router = createBrowserRouter([
         },
         {
           path: '/checkout',
-          element: <Checkout />,
+          element: <CheckoutPage />,
         },
       ]
     },
   ]);
 
-export default router
+export default router;

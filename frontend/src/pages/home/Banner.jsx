@@ -1,5 +1,5 @@
-import React from 'react'
-import bannerImg from '../../assets/banner.png'
+import React from 'react';
+import bannerImg from '../../assets/banner.png';
 
 const Banner = () => {
   return (
@@ -16,6 +16,6 @@ const Banner = () => {
         </div>
     </div>
   )
-}
+};
 
-export default Banner
+export default Banner;
