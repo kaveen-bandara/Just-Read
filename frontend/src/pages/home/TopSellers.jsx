@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import BookCard from '../books/BookCard';
 
 // Import Swiper React components
@@ -11,25 +11,20 @@ import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-//import { useFetchAllBooksQuery } from '../../redux/features/books/booksApi';
+import { useFetchAllBooksQuery } from '../../redux/features/books/booksApi';
 
-const categories = ["Choose a genre", "Business", "Fiction", "Horror", "Adventure"];
+const categories = ["Choose a genre", "Business", "Fiction", "Horror", "Adventure"]
 
 const TopSellers = () => {
     
     const [selectedCategory, setSelectedCategory] = useState("Choose a genre");
 
-    //const {data: books = []} = useFetchAllBooksQuery();
-    const [books, setbooks] = useState([]);
+   const {data: books = []} = useFetchAllBooksQuery();
+  
+    const filteredBooks = selectedCategory === "Choose a genre" ? books : books.filter(book => book.category === selectedCategory.toLowerCase())
 
-    useEffect(() => {
-        fetch("books.json").then(res => res.json()).then((data) => setbooks(data))
-    }, []);
-
-    const filteredBooks = selectedCategory === "Choose a genre" ? books : books.filter(book => book.category === selectedCategory.toLowerCase());
-
-  return (
-    <div className='py-10'>
+    return (
+        <div className='py-10'>
             <h2 className='text-3xl font-semibold mb-6'>Top Sellers</h2>
             {/* category filtering */}
             <div className='mb-8 flex items-center'>
@@ -84,7 +79,7 @@ const TopSellers = () => {
 
 
         </div>
-  )
-};
+    )
+}
 
-export default TopSellers;
+export default TopSellers

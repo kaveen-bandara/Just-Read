@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -7,10 +7,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 
-import news1 from '../../assets/news/news-1.png';
-import news2 from '../../assets/news/news-2.png';
-import news3 from '../../assets/news/news-3.png';
-import news4 from '../../assets/news/news-4.png';
+import news1 from "../../assets/news/news-1.png"
+import news2 from "../../assets/news/news-2.png"
+import news3 from "../../assets/news/news-3.png"
+import news4 from "../../assets/news/news-4.png"
 import { Link } from 'react-router-dom';
 
 const news = [
@@ -44,7 +44,7 @@ const news = [
         "description": "A leading tech company has released its latest smartphone model, featuring cutting-edge technology, improved battery life, and a sleek new design.",
         "image": news2
     }
-];
+]
 
 const News = () => {
   return (
@@ -96,6 +96,6 @@ const News = () => {
       </Swiper>
     </div>
   )
-};
+}
 
-export default News;
+export default News

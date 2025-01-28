@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
-import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form"
 import { Link, useNavigate } from 'react-router-dom';
-//import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 
 import Swal from'sweetalert2';
-//import { useCreateOrderMutation } from '../../redux/features/orders/ordersApi';
 
 const CheckoutPage = () => {
     const cartItems = useSelector(state => state.cart.cartItems);
     const totalPrice = cartItems.reduce((acc, item) => acc + item.newPrice, 0).toFixed(2);
-    const {  currentUser} = true;
+    const {  currentUser} = useAuth()
     const {
         register,
         handleSubmit,
         watch,
         formState: { errors },
-    } = useForm();
+    } = useForm()
 
-    //const [createOrder, {isLoading, error}] = useCreateOrderMutation();
-    const navigate =  useNavigate();
+    const [createOrder, {isLoading, error}] = useCreateOrderMutation();
+    const navigate =  useNavigate()
 
-    const [isChecked, setIsChecked] = useState(false);
+    const [isChecked, setIsChecked] = useState(false)
     const onSubmit = async (data) => {
+     
         const newOrder = {
             name: data.name,
             email: currentUser?.email,
@@ -36,7 +36,7 @@ const CheckoutPage = () => {
             phone: data.phone,
             productIds: cartItems.map(item => item?._id),
             totalPrice: totalPrice,
-        };
+        }
         
         try {
             await createOrder(newOrder).unwrap();
@@ -49,14 +49,14 @@ const CheckoutPage = () => {
                 cancelButtonColor: "#d33",
                 confirmButtonText: "Yes, It's Okay!"
               });
-              navigate("/orders");
+              navigate("/orders")
         } catch (error) {
             console.error("Error place an order", error);
             alert("Failed to place an order")
         }
-    };
+    }
 
-    //if(isLoading) return <div>Loading....</div>
+    if(isLoading) return <div>Loading....</div>
     return (
         <section>
             <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
@@ -191,6 +191,6 @@ const CheckoutPage = () => {
             </div>
         </section>
     )
-};
+}
 
-export default CheckoutPage;
+export default CheckoutPage

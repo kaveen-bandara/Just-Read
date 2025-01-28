@@ -1,15 +1,15 @@
-const mongoose = require('mongoose');
+const mongoose =  require('mongoose');
 
 const bookSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
     },
-    description: {
+    description:  {
         type: String,
         required: true,
     },
-    category: {
+    category:  {
         type: String,
         required: true,
     },
@@ -21,14 +21,19 @@ const bookSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    oldPrice: Number,
-    newPrice: Number,
+    oldPrice: {
+        type: Number,
+        required: true,
+    },
+    newPrice: {
+        type: Number,
+        required: true,
+    },
     createdAt: {
         type: Date,
         default: Date.now,
     }
-  }, 
-  {
+  }, {
     timestamps: true,
   });
 
