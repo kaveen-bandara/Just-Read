@@ -2,10 +2,27 @@ import { Outlet } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { AuthProvide } from './context/AuthContext'
-
+import { AuthProvide } from './context/AuthContext';
+import { useEffect, useState } from 'react';
+import Loading from './components/Loading';
 
 function App() {
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000); 
+
+    // cleanup timer
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loading />; 
+  }
+
   return (
     <>
       <AuthProvide>
@@ -16,7 +33,7 @@ function App() {
         <Footer />
       </AuthProvide>
     </>
-  )
+  );
 };
 
 export default App;
