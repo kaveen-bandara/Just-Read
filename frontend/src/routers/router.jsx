@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
+
 import App from '../App';
 import Home from '../pages/home/Home';
 import OrderPage from '../pages/books/OrderPage';
@@ -6,6 +7,16 @@ import Login from '../components/Login';
 import Register from '../components/Register';
 import CartPage from '../pages/books/CartPage';
 import CheckoutPage from '../pages/books/CheckoutPage';
+import SingleBook from '../pages/books/SingleBook';
+import UserDashboard from '../pages/dashboard/users/UserDashboard';
+import AdminLogin from '../components/AdminLogin';
+import DashboardLayout from '../pages/dashboard/DashboardLayout';
+import Dashboard from '../pages/dashboard/Dashboard';
+import AddBook from '../pages/dashboard/addBook/AddBook';
+import UpdateBook from '../pages/dashboard/EditBook/UpdateBook';
+import ManageBooks from '../pages/dashboard/manageBooks/ManageBooks';
+import PrivateRoute from './PrivateRoute';
+import AdminRoute from './AdminRoute';
 
 const router = createBrowserRouter([
   {
@@ -57,9 +68,9 @@ const router = createBrowserRouter([
   {
     path: '/dashboard',
     element: <AdminRoute><DashboardLayout /></AdminRoute>,
-    children:[
+    children: [
       {
-        path: '/',
+        path: '',
         element: <AdminRoute><Dashboard /></AdminRoute>
       },
       {

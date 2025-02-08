@@ -7,12 +7,8 @@ const OrderPage = () => {
     const {currentUser} = useAuth();
     const {data: orders = [], isLoading, isError} = useGetOrderByEmailQuery(currentUser.email);
 
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
-    if (isError) {
-        return <div>Error geting order data</div>;
-    }
+    if (isLoading) return <div>Loading...</div>;
+    if (isError) return <div>Error geting order data</div>;
 
     return (
         <div className='container mx-auto p-6'>
